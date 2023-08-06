@@ -1,0 +1,30 @@
+name: Publish Crate
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Build and Test
+        run: |
+          cargo build --verbose --all
+          cargo test --verbose --all
+
+      - name: Publish to Crates.io
+        env:
+          CRATES_IO_TOKEN: ${{ secrets.CRATES_IO_TOKEN }}
+        run: |
+          cargo login $CRATES_IO_TOKEN
+          cargo publish --verbose
