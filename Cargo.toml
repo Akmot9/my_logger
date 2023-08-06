@@ -11,7 +11,7 @@ keywords = [
     "macro",
     "logging",
     "file",
-    ".log"
+    "log"
 ]
 categories = [
     "macro"
