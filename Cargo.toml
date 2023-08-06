@@ -16,10 +16,6 @@ keywords = [
 categories = [
     "macro"
 ]
-exclude = [
-    "*.log",
-    "Cargo.lock",
-]
 include = [
     "src/**/*",
     "Cargo.toml",
