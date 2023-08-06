@@ -1,3 +1,18 @@
+/// This is a custom logging library for Rust.
+/// Logs a message to a file with a timestamp.
+///
+/// # Example
+///
+/// ```rust
+/// use my_logger::log;
+///
+/// fn main() {
+///     log!("This is a log message.");
+///     log!("Another log message with a value: {}", 42);
+/// }
+/// ```
+///
+/// The log messages will be written to a file named "file.log" in the current directory
 //use chrono::Utc;
 // Define your custom logging macro here
 #[macro_export]

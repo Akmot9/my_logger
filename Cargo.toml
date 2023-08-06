@@ -1,17 +1,30 @@
 [package]
 name = "my_logger"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["akmot9 avicocyprien@yahoo.com"]
 edition = "2018"
 description = "A simple marco to do logging in a file.log"
+homepage = "https://github.com/Akmot9/my_logger"
 repository = "https://github.com/Akmot9/my_logger"
 license = "MIT OR Apache-2.0"
-
+keywords = [
+    "macro",
+    "logging",
+    "file",
+    ".log"
+]
+categories = [
+    "macro"
+]
 exclude = [
     "*.log",
     "Cargo.lock",
 ]
-
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "README.md"
+]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
