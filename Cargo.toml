@@ -3,6 +3,10 @@ name = "my_logger"
 version = "0.1.0"
 authors = ["akmot9 avicocyprien@yahoo.com"]
 edition = "2018"
+description = "A simple marco to do logging in a file.log"
+repository = "https://github.com/Akmot9/my_logger"
+license = "MIT OR Apache-2.0"
+
 exclude = [
     "*.log",
     "Cargo.lock",
