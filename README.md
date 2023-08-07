@@ -30,5 +30,6 @@ The log messages will be written to a file named "file.log" in the current direc
 ## Exemple
 The log file (file.log) will contain a line like this:
 ```log
-[2023-08-07 21:55:28.310429743 UTC] error: Something went wrong!
+[2023-08-04T12:34:56Z] This is a log message.
+[2023-08-04T12:34:56Z] Another log message with a value: 42
 ``````
