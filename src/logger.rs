@@ -24,6 +24,7 @@ macro_rules! log {
         let log_message = format!($($arg)*);
         let now = Utc::now();
         let log_line = format!("[{}] {}\n", now, log_message);
+        println!("{log_line}");
 
         if let Ok(mut file) = OpenOptions::new()
             .append(true)
