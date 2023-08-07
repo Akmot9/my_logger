@@ -1,6 +1,6 @@
 [package]
 name = "my_logger"
-version = "0.1.2"
+version = "0.1.3"
 authors = ["akmot9 avicocyprien@yahoo.com"]
 edition = "2018"
 description = "A simple marco to do logging in a file.log"
