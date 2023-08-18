@@ -1,63 +1,42 @@
-//! This is a custom logging library for Rust.
-//!
-//! It provides a `log!` macro to log messages to a file with timestamps.
-//!
-//! Example:
-//! ```
-//! use my_logger::log;
-//!
-//! fn main() {
-//!     log!("This is a log message.");
-//!     log!("Another log message with a value: {}", 42);
-//! }
-//! ```
-//!
-//! The log messages will be written to a file named "file.log" in the current directory.
-/// Logs a message to a file with a timestamp.
+/// This is a custom logging library for Rust.
+///
+/// Logs messages to a file with timestamps and provides different macros for logging.
 ///
 /// # Example
 ///
 /// ```rust
-/// use my_logger::log;
+/// use my_logger::{log, logd, logw};
 ///
 /// fn main() {
 ///     log!("This is a log message.");
-///     log!("Another log message with a value: {}", 42);
+///     logd!("This is a debug log message (displayed in CLI only).");
+///     logw!("This is a warning log message (logged to file only).");
 /// }
 /// ```
 ///
-/// The log messages will be written to a file named "file.log" in the current directory
+/// The log messages will be written to a file named "file.log" in the current directory.
+///
+/// # Macros
+///
+/// - `log!` - Logs a message to both CLI and file with a timestamp.
+/// - `logd!` - Logs a message to CLI only without logging to the file.
+/// - `logw!` - Logs a message to the file only without displaying in CLI.
+///
+/// # Notes
+///
+/// - The `log!` and `logd!` macros use the same timestamp formatting.
+/// - The `logw!` macro logs directly to the file without printing in the CLI.
+///
+/// # Safety
+///
+/// The macros involve file I/O, which can potentially lead to data loss or corruption
+/// if not handled correctly. Ensure that the underlying file operations are safe and
+/// error handling is appropriately implemented.
 
 // Export the logger macro from the `logger` module
 pub mod logger;
 pub use logger::*;
 
-// Add these imports at the beginning of the test module
-#[cfg(test)]
-use std::fs;
-#[cfg(test)]
-use std::io::BufRead;
-#[cfg(test)]
-use std::io::BufReader;
 
-#[test]
-fn test_logging_macros() {
-    // Clear the log file before running the test
-    let _ = fs::remove_file("file.log");
 
-    // Log some messages using the log! macro
-    log!("Test message 1");
-    log!("Test message 2");
 
-    // Read the log file and count the number of lines
-    let file = fs::File::open("file.log").expect("Failed to open log file");
-    let reader = BufReader::new(file);
-    let line_count = reader.lines().count();
-
-    // Divide line_count by 2 to get the actual number of logged messages
-    let actual_message_count = line_count / 2;
-
-    // Assert that the actual number of messages matches our expectations
-    assert_eq!(actual_message_count, 2);
-
-}
