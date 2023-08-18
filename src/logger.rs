@@ -18,12 +18,13 @@
 #[macro_export]
 macro_rules! log {
     ($($arg:tt)*) => {{
-        use chrono::Utc;
+        use chrono::Local;
         use std::fs::OpenOptions;
         use std::io::Write;
         let log_message = format!($($arg)*);
-        let now = Utc::now();
-        let log_line = format!("[{}] {}\n", now, log_message);
+        let now = Local::now();
+        let formatted = format!("{}", now.format("%Y-%m-%d %H:%M:%S")) ;
+        let log_line = format!("[{}] {}\n", formatted, log_message);
         println!("{log_line}");
 
         if let Ok(mut file) = OpenOptions::new()
