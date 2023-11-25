@@ -2,7 +2,7 @@
 
 [![Crates.io](https://img.shields.io/crates/v/my_logger.svg)](https://crates.io/crates/my_logger)
 
-My Logger is a custom logging crate for Rust that provides a simple `log!` macro to log messages to a file with timestamps.
+My Logger is a custom logging crate for Rust that provides a simple `log!` macro to log messages to a file with timestamps. it doesn't use unsafe rust.
 
 ## Installation
 
